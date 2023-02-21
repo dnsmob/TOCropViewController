@@ -207,6 +207,11 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     if (self.navigationController == nil) {
         [self.cropView setBackgroundImageViewHidden:NO animated:animated];
     }
+
+    // Force white text on crop view
+    // Deprecated way of controlling status bar -- conflicts with RN info.plist requirement
+    UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleLightContent;
+    UIApplication.sharedApplication.statusBarHidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
